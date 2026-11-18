@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiko Suave Studio | Diseño Gráfico & Arte Rockanrolero - Cuenca</title>
+    <!-- Cargamos Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes con estética grunge, rock y editorial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        chikoYellow: '#FFE600',
+                        chikoPink: '#E61E72',
+                        chikoDark: '#0D0D0D',
+                        chikoGray: '#1A1A1A'
+                    },
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        marker: ['Permanent Marker', 'cursive'],
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0D0D0D;
+            color: #F5F5F5;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        /* Efecto de sombra dura estilo póster punk/rock */
+        .brutal-shadow {
+            box-shadow: 6px 6px 0px #FFE600;
+        }
+        .brutal-shadow-pink {
+            box-shadow: 6px 6px 0px #E61E72;
+        }
+        .brutal-shadow-black {
+            box-shadow: 6px 6px 0px #0D0D0D;
+        }
+        .brutal-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px #E61E72;
+        }
+        /* Cinta adhesiva decorativa estilo fanzine */
+        .tape {
+            background-color: rgba(255, 230, 0, 0.85);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+            transform: rotate(-2deg);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-chikoPink selection:text-white overflow-x-hidden">
+
+    <!-- ================= BARRA DE NAVEGACIÓN ================= -->
+    <header class="fixed w-full bg-chikoDark/95 backdrop-blur-md border-b-2 border-chikoYellow z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logotipo / Marca -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <img 
+                        src="logo para perfil.png" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/100x100/FFE600/0D0D0D?text=CS';"
+                        alt="Logo Chiko Suave Studio" 
+                        class="h-12 w-12 rounded-lg object-cover border-2 border-chikoYellow group-hover:rotate-6 transition-transform"
+                    >
+                    <span class="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-chikoYellow uppercase">
+                        Chiko Suave <span class="text-chikoPink">Studio</span>
+                    </span>
+                </a>
+
+                <!-- Menú Escritorio -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-neutral-200 hover:text-chikoYellow font-bold uppercase tracking-wider text-sm transition">Inicio</a>
+                    <a href="#servicios" class="text-neutral-200 hover:text-chikoYellow font-bold uppercase tracking-wider text-sm transition">Servicios</a>
+                    <a href="#portafolio" class="text-neutral-200 hover:text-chikoYellow font-bold uppercase tracking-wider text-sm transition">Portafolio</a>
+                    <a href="#estudio" class="text-neutral-200 hover:text-chikoYellow font-bold uppercase tracking-wider text-sm transition">El Estudio</a>
+                    <a href="#contacto" class="bg-chikoYellow hover:bg-chikoPink text-chikoDark hover:text-white px-5 py-2.5 rounded-lg font-extrabold uppercase text-sm tracking-wider transition border-2 border-chikoYellow hover:border-chikoPink">
+                        Cotizar Arte
+                    </a>
+                </nav>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-chikoYellow hover:text-chikoPink focus:outline-none p-2 border border-chikoYellow rounded-lg" aria-label="Abrir menú">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-chikoGray border-b-2 border-chikoYellow px-4 pt-3 pb-6 space-y-3">
+            <a href="#inicio" class="block px-3 py-2 rounded-lg text-base font-bold uppercase text-white hover:bg-chikoYellow hover:text-chikoDark">Inicio</a>
+            <a href="#servicios" class="block px-3 py-2 rounded-lg text-base font-bold uppercase text-white hover:bg-chikoYellow hover:text-chikoDark">Servicios</a>
+            <a href="#portafolio" class="block px-3 py-2 rounded-lg text-base font-bold uppercase text-white hover:bg-chikoYellow hover:text-chikoDark">Portafolio</a>
+            <a href="#estudio" class="block px-3 py-2 rounded-lg text-base font-bold uppercase text-white hover:bg-chikoYellow hover:text-chikoDark">El Estudio</a>
+            <a href="#contacto" class="block px-3 py-3 rounded-lg text-base font-extrabold uppercase bg-chikoPink text-white text-center mt-2">Contacto Directo</a>
+        </div>
+    </header>
+
+    <!-- ================= SECCIÓN PRINCIPAL (HERO) ================= -->
+    <section id="inicio" class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Columna de Texto -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-md bg-chikoPink text-white font-bold text-xs sm:text-sm uppercase tracking-widest transform -rotate-1">
+                    <span>🎸 Cuenca, Ecuador • Calle Vega Muñoz</span>
+                </div>
+                
+                <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-white uppercase leading-none tracking-tight">
+                    Arte gráfico con <span class="text-chikoYellow underline decoration-chikoPink decoration-4 underline-offset-8">actitud rockanrolera</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-neutral-300 leading-relaxed max-w-2xl">
+                    En <strong class="text-chikoYellow">Chiko Suave Studio</strong> convertimos el ruido y la esencia de la escena musical en identidad visual. Creamos afiches, pósters, portadas ilustradas y gestión para bandas que quieren dejar marca.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <a href="#portafolio" class="bg-chikoYellow hover:bg-white text-chikoDark font-extrabold uppercase tracking-wider px-8 py-4 rounded-xl text-center transition brutal-shadow-pink">
+                        Ver Trabajos
+                    </a>
+                    <a href="https://wa.me/593991108456?text=Hola%20Chiko%20Suave%20Studio,%20quiero%20cotizar%20un%20dise%C3%B1o" target="_blank" rel="noopener noreferrer" class="bg-chikoGray hover:bg-chikoPink text-white border-2 border-white font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-center transition flex items-center justify-center gap-2">
+                        <span>Escribir al 0991108456</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna Visual (Logo Principal ckimagen.png) -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative max-w-md w-full">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 tape z-10"></div>
+                    <div class="bg-white p-6 rounded-2xl border-4 border-chikoYellow brutal-shadow-pink transform rotate-1 hover:rotate-0 transition duration-300">
+                        <img 
+                            src="ckimagen.png" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x500/FFE600/0D0D0D?text=CHIKO+SUAVE+STUDIO';"
+                            alt="Chiko Suave Identidad" 
+                            class="w-full h-auto object-contain"
+                        >
+                        <div class="mt-4 pt-3 border-t-2 border-dashed border-neutral-300 flex justify-between items-center text-chikoDark font-bold text-xs uppercase">
+                            <span>Estudio Gráfico Independiente</span>
+                            <span class="bg-chikoPink text-white px-2 py-0.5 rounded">CUENCA - EC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CINTA DIVISORIA ROCK ================= -->
+    <div class="bg-chikoYellow text-chikoDark py-3 border-y-4 border-chikoPink overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-around items-center gap-4 font-display font-extrabold uppercase text-sm sm:text-base tracking-widest">
+            <span>★ AFICHES DE TOQUES</span>
+            <span>★ ILUSTRACIÓN DE PORTADAS</span>
+            <span>★ PÓSTERS DE COLECCIÓN</span>
+            <span>★ GESTIÓN MUSICAL</span>
+        </div>
+    </div>
+
+    <!-- ================= SECCIÓN DE SERVICIOS ================= -->
+    <section id="servicios" class="py-24 bg-chikoGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <span class="text-chikoPink font-bold uppercase tracking-widest text-sm">Lo que hacemos</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white uppercase mt-2">
+                    Arsenal Creativo para la <span class="text-chikoYellow">Escena</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Servicio 1 -->
+                <div class="bg-chikoDark p-7 rounded-2xl border-2 border-neutral-800 hover:border-chikoYellow brutal-card transition duration-300">
+                    <div class="w-14 h-14 bg-chikoYellow text-chikoDark rounded-xl flex items-center justify-center text-3xl font-bold mb-6">
+                        ⚡
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white uppercase mb-3">Afiches & Flyers</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">
+                        Diseño de carteles de alto impacto para conciertos, festivales, toques underground y giras. Listos para imprenta y redes sociales.
+                    </p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-chikoDark p-7 rounded-2xl border-2 border-neutral-800 hover:border-chikoYellow brutal-card transition duration-300">
+                    <div class="w-14 h-14 bg-chikoPink text-white rounded-xl flex items-center justify-center text-3xl font-bold mb-6">
+                        🎨
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white uppercase mb-3">Ilustración de Portadas</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">
+                        Arte original hecho a medida para EPs, álbumes, singles y vinilos. Ilustración cruda y expresiva que captura el sonido de tu banda.
+                    </p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-chikoDark p-7 rounded-2xl border-2 border-neutral-800 hover:border-chikoYellow brutal-card transition duration-300">
+                    <div class="w-14 h-14 bg-chikoYellow text-chikoDark rounded-xl flex items-center justify-center text-3xl font-bold mb-6">
+                        🤘
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white uppercase mb-3">Identidad & Merch</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">
+                        Logotipos de bandas, lettering personalizado, diseño de camisetas, stickers y tarjetas de presentación con carácter propio.
+                    </p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-chikoDark p-7 rounded-2xl border-2 border-neutral-800 hover:border-chikoYellow brutal-card transition duration-300">
+                    <div class="w-14 h-14 bg-chikoPink text-white rounded-xl flex items-center justify-center text-3xl font-bold mb-6">
+                        🎛️
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white uppercase mb-3">Gestión de Música</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">
+                        Acompañamiento estratégico para lanzamientos, difusión en la comunidad rockanrolera local y articulación de proyectos musicales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PORTAFOLIO / GALERÍA DE TRABAJOS ================= -->
+    <section id="portafolio" class="py-24 bg-chikoDark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-chikoYellow font-bold uppercase tracking-widest text-sm">Archivo Visual</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white uppercase mt-2">
+                        Trabajos <span class="text-chikoPink">Destacados</span>
+                    </h2>
+                </div>
+                
+                <!-- Filtros de Categoría -->
+                <div class="flex flex-wrap gap-2" id="portfolio-filters">
+                    <button data-filter="all" class="filter-btn active bg-chikoYellow text-chikoDark font-bold px-4 py-2 rounded-lg text-sm uppercase transition">Todos</button>
+                    <button data-filter="portadas" class="filter-btn bg-chikoGray text-white hover:bg-chikoPink font-bold px-4 py-2 rounded-lg text-sm uppercase transition">Portadas & Ilustración</button>
+                    <button data-filter="branding" class="filter-btn bg-chikoGray text-white hover:bg-chikoPink font-bold px-4 py-2 rounded-lg text-sm uppercase transition">Logotipos & Marca</button>
+                </div>
+            </div>
+
+            <!-- Cuadrícula de Proyectos con TUS IMÁGENES -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                
+                <!-- Proyecto 1: Sabueso Portada -->
+                <div class="portfolio-item group bg-chikoGray rounded-2xl overflow-hidden border-2 border-neutral-800 hover:border-chikoPink transition duration-300 cursor-pointer" data-category="portadas" onclick="openLightbox('sabuezo portada.jpg', 'Sabueso — Montesimios', 'Ilustración original y arte de portada con estética cruda y agresiva.')">
+                    <div class="aspect-square bg-white overflow-hidden relative">
+                        <img 
+                            src="sabuezo portada.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/1A1A1A/FFE600?text=Sabueso+Portada';"
+                            alt="Portada Sabueso Montesimios" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                        >
+                        <span class="absolute top-3 left-3 bg-chikoPink text-white text-xs font-extrabold uppercase px-3 py-1 rounded">Ilustración Portada</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-white group-hover:text-chikoYellow transition">Sabueso — Montesimios</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Arte de portada e ilustración personalizada.</p>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Mono Montesimios -->
+                <div class="portfolio-item group bg-chikoGray rounded-2xl overflow-hidden border-2 border-neutral-800 hover:border-chikoPink transition duration-300 cursor-pointer" data-category="portadas" onclick="openLightbox('MONO.jpg', 'Personaje Montesimios', 'Ilustración de personaje y lettering estilo psicodélico / punk.')">
+                    <div class="aspect-square bg-white overflow-hidden relative">
+                        <img 
+                            src="MONO.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/1A1A1A/E61E72?text=Ilustracion+Mono';"
+                            alt="Ilustración Mono Montesimios" 
+                            class="w-full h-full object-contain p-2 group-hover:scale-105 transition duration-500"
+                        >
+                        <span class="absolute top-3 left-3 bg-chikoYellow text-chikoDark text-xs font-extrabold uppercase px-3 py-1 rounded">Ilustración & Merch</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-white group-hover:text-chikoYellow transition">Montesimios — Arte Gráfico</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Ilustración de personaje para afiches y mercancía.</p>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Zabueso Edición Fotográfica -->
+                <div class="portfolio-item group bg-chikoGray rounded-2xl overflow-hidden border-2 border-neutral-800 hover:border-chikoPink transition duration-300 cursor-pointer" data-category="portadas" onclick="openLightbox('ZABUEZO.jpg', 'Zabueso — Arte Conceptual', 'Composición fotográfica con tipografía ilustrada a mano alzada.')">
+                    <div class="aspect-square bg-neutral-900 overflow-hidden relative">
+                        <img 
+                            src="ZABUEZO.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/1A1A1A/FFE600?text=Zabueso+Arte';"
+                            alt="Arte Zabueso" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                        >
+                        <span class="absolute top-3 left-3 bg-chikoPink text-white text-xs font-extrabold uppercase px-3 py-1 rounded">Single Cover</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-white group-hover:text-chikoYellow transition">Zabueso — Cover Art</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Composición visual y lettering texturizado.</p>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: Logotipo Montesimios -->
+                <div class="portfolio-item group bg-chikoGray rounded-2xl overflow-hidden border-2 border-neutral-800 hover:border-chikoPink transition duration-300 cursor-pointer" data-category="branding" onclick="openLightbox('logotipo_MONTESIMIOS_type.png', 'Logotipo Montesimios', 'Diseño tipográfico agresivo e identidad visual para banda de rock.')">
+                    <div class="aspect-square bg-white overflow-hidden relative flex items-center justify-center p-6">
+                        <img 
+                            src="logotipo_MONTESIMIOS_type.png" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/FFFFFF/0D0D0D?text=MONTESIMIOS';"
+                            alt="Logotipo Montesimios" 
+                            class="w-full h-full object-contain group-hover:scale-105 transition duration-500"
+                        >
+                        <span class="absolute top-3 left-3 bg-chikoDark text-chikoYellow text-xs font-extrabold uppercase px-3 py-1 rounded">Logotipo Banda</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-white group-hover:text-chikoYellow transition">Logotipo Montesimios</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Lettering original e identidad de banda.</p>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5: Tarjeta de Presentación Chiko Suave -->
+                <div class="portfolio-item group bg-chikoGray rounded-2xl overflow-hidden border-2 border-neutral-800 hover:border-chikoPink transition duration-300 cursor-pointer" data-category="branding" onclick="openLightbox('Tarjeta de presentacion CS.png', 'Identidad Chiko Suave Studio', 'Papelería, tarjeta de presentación y sistema cromático oficial del estudio.')">
+                    <div class="aspect-square bg-chikoPink overflow-hidden relative flex items-center justify-center">
+                        <img 
+                            src="Tarjeta de presentacion CS.png" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/E61E72/FFE600?text=Tarjeta+CS';"
+                            alt="Tarjeta de presentación Chiko Suave Studio" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                        >
+                        <span class="absolute top-3 left-3 bg-chikoYellow text-chikoDark text-xs font-extrabold uppercase px-3 py-1 rounded">Branding Estudio</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-white group-hover:text-chikoYellow transition">Tarjeta Chiko Suave</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Diseño corporativo alternativo y papelería impresa.</p>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6: Emblema Perfil -->
+                <div class="portfolio-item group bg-chikoGray rounded-2xl overflow-hidden border-2 border-neutral-800 hover:border-chikoPink transition duration-300 cursor-pointer" data-category="branding" onclick="openLightbox('logo para perfil.png', 'Sello Oficial Chiko Suave', 'Isotipo con guitarra integrado a la tipografía del estudio.')">
+                    <div class="aspect-square bg-chikoYellow overflow-hidden relative flex items-center justify-center">
+                        <img 
+                            src="logo para perfil.png" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x600/FFE600/0D0D0D?text=Chiko+Suave';"
+                            alt="Sello Oficial Chiko Suave" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                        >
+                        <span class="absolute top-3 left-3 bg-chikoDark text-white text-xs font-extrabold uppercase px-3 py-1 rounded">Identidad Visual</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-white group-hover:text-chikoYellow transition">Sello Chiko Suave Studio</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Construcción de marca e icono principal.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN EL ESTUDIO (UBICACIÓN CUENCA) ================= -->
+    <section id="estudio" class="py-24 bg-chikoYellow text-chikoDark border-y-4 border-chikoPink">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block bg-chikoDark text-chikoYellow font-bold px-3 py-1 rounded text-xs uppercase tracking-widest mb-4">
+                        Desde el corazón de Cuenca
+                    </span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold uppercase leading-tight mb-6">
+                        Nacidos para amplificar la escena <span class="bg-chikoPink text-white px-2">rockanrolera</span>
+                    </h2>
+                    <p class="text-lg font-medium mb-6 leading-relaxed">
+                        <strong>Chiko Suave Studio</strong> es un espacio creativo dedicado a bandas, músicos independientes, promotores y colectivos culturales. Creemos que la música se escucha primero por los ojos.
+                    </p>
+                    
+                    <div class="bg-white/90 p-6 rounded-2xl border-2 border-chikoDark brutal-shadow-black space-y-3">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">📍</span>
+                            <div>
+                                <h4 class="font-bold uppercase text-sm text-chikoPink">Ubicación del Estudio</h4>
+                                <p class="font-extrabold text-lg">Calle Vega Muñoz, Cuenca - Ecuador</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 pt-2 border-t border-neutral-300">
+                            <span class="text-2xl">📱</span>
+                            <div>
+                                <h4 class="font-bold uppercase text-sm text-chikoPink">Teléfono / WhatsApp</h4>
+                                <p class="font-extrabold text-lg">0991108456</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta visual del estudio -->
+                <div class="flex justify-center">
+                    <div class="bg-chikoDark p-4 rounded-2xl border-4 border-chikoDark brutal-shadow-pink max-w-lg w-full">
+                        <img 
+                            src="Tarjeta de presentacion CS.png" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/800x600/E61E72/FFE600?text=Chiko+Suave+Studio+Cuenca';"
+                            alt="Tarjeta Chiko Suave Studio" 
+                            class="w-full h-auto rounded-xl"
+                        >
+                        <p class="text-chikoYellow text-center font-marker text-lg mt-4 tracking-wide">
+                            "Diseño con distorsión, tinta y volumen al máximo"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN DE CONTACTO ================= -->
+    <section id="contacto" class="py-24 bg-chikoDark">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-chikoPink font-bold uppercase tracking-widest text-sm">Hagamos ruido juntos</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white uppercase mt-2">
+                    Inicia tu próximo <span class="text-chikoYellow">proyecto</span>
+                </h2>
+                <p class="text-neutral-400 text-lg mt-3">
+                    ¿Necesitas el afiche de tu próximo toque, la portada de tu disco o gestión para tu banda? Escríbenos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Info rápida lateral -->
+                <div class="bg-chikoGray p-6 rounded-2xl border-2 border-neutral-800 flex flex-col justify-between space-y-6">
+                    <div>
+                        <h3 class="font-display text-xl font-bold text-chikoYellow uppercase mb-4">Contacto Directo</h3>
+                        <p class="text-neutral-300 text-sm mb-6">
+                            Visítanos en nuestro taller o mándanos un mensaje directo con tu idea.
+                        </p>
+                        <ul class="space-y-4 text-sm">
+                            <li class="flex items-center gap-3">
+                                <span class="bg-chikoPink text-white p-2 rounded-lg font-bold">📍</span>
+                                <span>Calle Vega Muñoz, Cuenca, Ecuador</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="bg-chikoYellow text-chikoDark p-2 rounded-lg font-bold">📞</span>
+                                <a href="tel:+593991108456" class="hover:text-chikoYellow font-bold">0991108456</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://wa.me/593991108456?text=Hola%20Chiko%20Suave%20Studio,%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-500 hover:bg-emerald-600 text-chikoDark font-extrabold uppercase text-center py-3 rounded-xl transition text-sm">
+                        Chatear por WhatsApp
+                    </a>
+                </div>
+
+                <!-- Formulario -->
+                <form id="contact-form" class="md:col-span-2 bg-chikoGray p-8 rounded-2xl border-2 border-chikoYellow brutal-shadow-pink space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="nombre" class="block text-xs font-bold uppercase tracking-wider text-chikoYellow mb-2">Tu Nombre o Banda</label>
+                            <input type="text" id="nombre" required placeholder="Ej. Los Subterráneos" 
+                                class="w-full px-4 py-3 rounded-xl bg-chikoDark border border-neutral-700 text-white focus:border-chikoPink focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label for="servicio" class="block text-xs font-bold uppercase tracking-wider text-chikoYellow mb-2">¿Qué necesitas?</label>
+                            <select id="servicio" class="w-full px-4 py-3 rounded-xl bg-chikoDark border border-neutral-700 text-white focus:border-chikoPink focus:outline-none transition">
+                                <option value="Afiche / Póster">Afiche / Póster de evento</option>
+                                <option value="Ilustración Portada">Ilustración para Portada</option>
+                                <option value="Logotipo / Identidad">Logotipo / Identidad de Banda</option>
+                                <option value="Gestión Musical">Gestión de Música</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="contacto-usuario" class="block text-xs font-bold uppercase tracking-wider text-chikoYellow mb-2">Tu WhatsApp o Correo</label>
+                        <input type="text" id="contacto-usuario" required placeholder="099... o correo@banda.com" 
+                            class="w-full px-4 py-3 rounded-xl bg-chikoDark border border-neutral-700 text-white focus:border-chikoPink focus:outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="mensaje" class="block text-xs font-bold uppercase tracking-wider text-chikoYellow mb-2">Cuéntanos sobre tu proyecto</label>
+                        <textarea id="mensaje" rows="3" required placeholder="Fechas del toque, estilo musical, ideas visuales..." 
+                            class="w-full px-4 py-3 rounded-xl bg-chikoDark border border-neutral-700 text-white focus:border-chikoPink focus:outline-none transition"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-chikoPink hover:bg-chikoYellow text-white hover:text-chikoDark font-extrabold uppercase tracking-wider py-4 rounded-xl transition">
+                        Enviar Propuesta
+                    </button>
+
+                    <!-- Mensaje de confirmación -->
+                    <div id="form-feedback" class="hidden p-4 rounded-xl bg-chikoYellow text-chikoDark text-center font-bold text-sm">
+                        🤘 ¡Mensaje recibido! Chiko Suave Studio se pondrá en contacto contigo pronto.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PIE DE PÁGINA ================= -->
+    <footer class="bg-black text-neutral-400 py-10 border-t border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="font-display font-extrabold text-lg text-chikoYellow uppercase">
+                Chiko Suave <span class="text-chikoPink">Studio</span>
+            </div>
+            <p class="text-xs sm:text-sm text-center">
+                Calle Vega Muñoz, Cuenca - Ecuador • Tel: 0991108456 • &copy; 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL LIGHTBOX PARA VER IMÁGENES EN GRANDE ================= -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="bg-chikoGray border-4 border-chikoYellow rounded-2xl max-w-2xl w-full p-4 sm:p-6 relative" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-4 -right-4 bg-chikoPink text-white w-10 h-10 rounded-full font-extrabold text-xl border-2 border-white hover:scale-110 transition">
+                ✕
+            </button>
+            <div class="bg-white rounded-xl overflow-hidden max-h-[65vh] flex items-center justify-center">
+                <img id="lightbox-img" src="" alt="Vista previa" class="max-h-[65vh] w-auto object-contain">
+            </div>
+            <div class="mt-4">
+                <h3 id="lightbox-title" class="font-display text-2xl font-bold text-chikoYellow uppercase"></h3>
+                <p id="lightbox-desc" class="text-neutral-300 text-sm mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // 1. Menú móvil
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. Filtros de Portafolio
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Actualizar estilos de botones
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-chikoYellow', 'text-chikoDark');
+                    b.classList.add('bg-chikoGray', 'text-white');
+                });
+                btn.classList.remove('bg-chikoGray', 'text-white');
+                btn.classList.add('bg-chikoYellow', 'text-chikoDark');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 3. Lightbox (Vista ampliada de trabajos)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+
+        function openLightbox(src, title, desc) {
+            lightboxImg.src = src;
+            lightboxTitle.textContent = title;
+            lightboxDesc.textContent = desc;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+        }
+
+        // Cerrar lightbox con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // 4. Envío de formulario
+        const contactForm = document.getElementById('contact-form');
+        const formFeedback = document.getElementById('form-feedback');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formFeedback.classList.remove('hidden');
+            contactForm.reset();
+            setTimeout(() => {
+                formFeedback.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
